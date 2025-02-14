@@ -62,7 +62,7 @@ func (p *providerSetSrc) description(fset *token.FileSet, typ types.Type) string
 	case p.Value != nil:
 		return fmt.Sprintf("wire.Value - %s", fset.Position(p.Value.Pos))
 	case p.Import != nil:
-		return fmt.Sprintf("provider set %s - %s", quoted(p.Import.VarName), fset.Position(p.Import.Pos))
+		return fmt.Sprintf("provider set %s- %s", quoted(p.Import.VarName), fset.Position(p.Import.Pos))
 	case p.InjectorArg != nil:
 		args := p.InjectorArg.Args
 		return fmt.Sprintf("argument %s to injector function %s - %s", args.Tuple.At(p.InjectorArg.Index).Name(), args.Name, fset.Position(args.Pos))

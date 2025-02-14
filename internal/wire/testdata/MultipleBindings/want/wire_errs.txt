@@ -9,24 +9,24 @@ current:
 <- provider "provideFoo" - example.com/foo/foo.go:x:y
 previous:
 <- provider "provideFoo" - example.com/foo/foo.go:x:y
-<- provider "provideFoo" - example.com/foo/foo.go:x:y
+<- provider set "Set" - example.com/foo/foo.go:x:y
 
 example.com/foo/wire.go:x:y: multiple bindings for example.com/foo.Foo
 current:
 <- provider "provideFoo" - example.com/foo/foo.go:x:y
 previous:
 <- provider "provideFoo" - example.com/foo/foo.go:x:y
-<- provider "provideFoo" - example.com/foo/foo.go:x:y
+<- provider set "Set" - example.com/foo/foo.go:x:y
 <- provider set "SuperSet" - example.com/foo/foo.go:x:y
 
 example.com/foo/foo.go:x:y: SetWithDuplicateBindings has multiple bindings for example.com/foo.Foo
 current:
 <- provider "provideFoo" - example.com/foo/foo.go:x:y
-<- provider "provideFoo" - example.com/foo/foo.go:x:y
+<- provider set "Set" - example.com/foo/foo.go:x:y
 <- provider set "SuperSet" - example.com/foo/foo.go:x:y
 previous:
 <- provider "provideFoo" - example.com/foo/foo.go:x:y
-<- provider "provideFoo" - example.com/foo/foo.go:x:y
+<- provider set "Set" - example.com/foo/foo.go:x:y
 
 example.com/foo/wire.go:x:y: multiple bindings for example.com/foo.Foo
 current:
