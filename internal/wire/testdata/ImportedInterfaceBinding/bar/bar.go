@@ -18,7 +18,7 @@ import (
 	"fmt"
 
 	"example.com/foo"
-	"github.com/google/wire"
+	"github.com/utherbit/wire"
 )
 
 func main() {
