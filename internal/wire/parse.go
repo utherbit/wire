@@ -56,18 +56,18 @@ func (p *providerSetSrc) description(fset *token.FileSet, typ types.Type) string
 		if p.Provider.IsStruct {
 			kind = "struct provider"
 		}
-		return fmt.Sprintf("%s %s(%s)", kind, quoted(p.Provider.Name), fset.Position(p.Provider.Pos))
+		return fmt.Sprintf("%s %s- %s", kind, quoted(p.Provider.Name), fset.Position(p.Provider.Pos))
 	case p.Binding != nil:
-		return fmt.Sprintf("wire.Bind (%s)", fset.Position(p.Binding.Pos))
+		return fmt.Sprintf("wire.Bind - %s", fset.Position(p.Binding.Pos))
 	case p.Value != nil:
-		return fmt.Sprintf("wire.Value (%s)", fset.Position(p.Value.Pos))
+		return fmt.Sprintf("wire.Value - %s", fset.Position(p.Value.Pos))
 	case p.Import != nil:
-		return fmt.Sprintf("provider set %s(%s)", quoted(p.Import.VarName), fset.Position(p.Import.Pos))
+		return fmt.Sprintf("provider set %s - %s", quoted(p.Import.VarName), fset.Position(p.Import.Pos))
 	case p.InjectorArg != nil:
 		args := p.InjectorArg.Args
-		return fmt.Sprintf("argument %s to injector function %s (%s)", args.Tuple.At(p.InjectorArg.Index).Name(), args.Name, fset.Position(args.Pos))
+		return fmt.Sprintf("argument %s to injector function %s - %s", args.Tuple.At(p.InjectorArg.Index).Name(), args.Name, fset.Position(args.Pos))
 	case p.Field != nil:
-		return fmt.Sprintf("wire.FieldsOf (%s)", fset.Position(p.Field.Pos))
+		return fmt.Sprintf("wire.FieldsOf - %s", fset.Position(p.Field.Pos))
 	}
 	panic("providerSetSrc with no fields set")
 }
